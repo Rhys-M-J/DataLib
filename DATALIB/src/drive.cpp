@@ -12,7 +12,7 @@ drive::drive(int LeftF, int LeftB, int RightF, int RightB, DT drvtp) :
 
 drive::drive(int LeftF, int LeftM, int LeftB, int RightF, int RightM, int RightB, DT drvtp) : 
     LF(LeftF), LM(LeftM), LB(LeftB), RF(RightF), RM(RightM), RB(RightB), 
-    L({0,0,0}), R({0,0,0}),
+    L({LF,LM,LB}), R({RF,RM,RB}),
     DriveType(drvtp)
     {
 

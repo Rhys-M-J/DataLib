@@ -9,14 +9,9 @@ public:
     drive(int,int,int,int,DT);
     drive(int,int,int,int,int,int,DT);
     drive(int,int,int,int,int,int,int,int,DT);
-    ~drive();
+
 
     
-
-    void SARC();
-    void ARC();
-    void TANK();
-
     void UC();
 
     private:
@@ -29,6 +24,10 @@ public:
 
    pros::Motor_Group R;
    pros::Motor_Group L;
+
+    void SARC();
+    void ARC();
+    void TANK();
 
    DT DriveType;
 };
