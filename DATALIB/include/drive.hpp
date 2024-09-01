@@ -29,6 +29,8 @@ public:
     void ARC();
     void TANK();
 
+    void DF(int,int);
+
    DT DriveType;
 };
 

@@ -58,3 +58,8 @@ void drive::UC()
     }
 }
 
+void drive::DF(int LIN, int RIN)
+    {
+        L.move(LIN);
+        R.move(RIN);
+    }
