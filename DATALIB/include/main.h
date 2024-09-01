@@ -79,3 +79,6 @@ void opcontrol(void);
 #endif
 
 #endif  // _PROS_MAIN_H_
+
+
+extern pros::Controller ctlr;
