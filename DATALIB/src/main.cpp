@@ -5,7 +5,7 @@
 pros::Controller ctlr(pros::E_CONTROLLER_MASTER);
 
 drive drivet (11,12,13,-20,-19,-18, drive::sarc);
-gui guit(10);
+
 
 void initialize() {}
 

@@ -15,13 +15,21 @@ public:
     team Team;
 
     void guiHome();
-    lv_action_t MatchSet();
+    void autoS();
+
+    static lv_res_t TSet(lv_obj_t *);
     lv_action_t TSel();
-    lv_action_t TSet(team);
+    
+    void TSetR();
+    void TSetB();
+
 
     team getTeam();
     
+    
 };
 
+    static lv_res_t TSetRW(lv_obj_t *);
+    static lv_res_t TSetBW(lv_obj_t *);
 
-//lv_action_t MatchSet();
+    extern gui guit;

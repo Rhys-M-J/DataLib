@@ -4,17 +4,20 @@
 gui::gui(){};
 gui::gui(int test){};
 
+gui guit(10);
+bool Passthrough;
+
 
 void gui::guiHome()
     {
-
+            
         lv_obj_t * scrHome = lv_obj_create(NULL,NULL);
         lv_scr_load(scrHome);
 
 
         lv_obj_t * StartM = lv_btn_create(scrHome, NULL);
         lv_obj_set_size(StartM, 200, 200);
-        lv_btn_set_action(StartM, LV_BTN_ACTION_PR, MatchSet());
+        lv_btn_set_action(StartM, LV_BTN_ACTION_PR, TSet);
 
         
 
@@ -26,20 +29,13 @@ void gui::guiHome()
         //StartMStl->body.main_color = LV_COLOR_GREEN;
 
         //lv_btn_set_style(StartM, 1, StartMStl);
-
-
-
-
-
-        
-
-        
     }
 
 
-lv_action_t gui::MatchSet()
+
+    lv_res_t gui::TSet(lv_obj_t * btn)
     {
-        bool Passthrough = 0;
+        Passthrough = 1;
 
         lv_obj_del(lv_scr_act());
 
@@ -47,33 +43,50 @@ lv_action_t gui::MatchSet()
         lv_obj_t * scrTSel = lv_obj_create(NULL,NULL);
         lv_scr_load(scrTSel);
 
-
         lv_obj_t * SelRed = lv_btn_create(scrTSel, NULL);
-        lv_obj_set_pos(SelRed, 0,0);
-        //lv_btn_set_action(SelRed, LV_BTN_ACTION_CLICK, TSet(Red));
+        lv_obj_set_pos(SelRed, 0,120);
+        lv_btn_set_action(SelRed, LV_BTN_ACTION_CLICK, TSetRW);
 
         lv_obj_t * SelRedL = lv_label_create(SelRed, NULL);
 
 
         lv_obj_t * SelBlue = lv_btn_create(scrTSel, NULL);
-        lv_obj_set_pos(SelBlue, 50,50);
-        //lv_btn_set_action(SelBlue, LV_BTN_ACTION_CLICK, TSet(Blue));
+        lv_obj_set_pos(SelBlue, 300,120);
+        lv_btn_set_action(SelBlue, LV_BTN_ACTION_CLICK, TSetBW);
 
         lv_obj_t * SelBlueL = lv_label_create(SelBlue, NULL);
 
 
+        return LV_RES_OK;
 
-
-        return 0;
     }
 
-lv_action_t gui::TSet(gui::team T)
-    {
-        Team = T;
-        return 0;
-    }
+    void gui::TSetR()
+        {
+            Team = Red;
+            autoS();
+        }
 
-gui::team gui::getTeam()
-    {
-        return Team;
-    }
+    lv_res_t TSetRW(lv_obj_t * btn)
+        {
+            guit.TSetR();
+            return 0;
+        }
+
+    void gui::TSetB()
+        {
+            Team = Red;
+            autoS();
+        }
+
+    lv_res_t TSetBW(lv_obj_t * btn)
+        {
+            guit.TSetB();
+            return 0;
+        }
+
+
+void gui::autoS(){};
+
+
+
