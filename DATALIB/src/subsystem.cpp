@@ -28,6 +28,11 @@ void subsystem::P_B_M12()
             {
                 M1.move(-127);
             }
+            
+        else 
+            {
+                M1.brake();
+            }
 
     }
 
@@ -40,4 +45,15 @@ void subsystem::T_B_P21()
 
         PIS1.set_value(toggle);
         PIS2.set_value(toggle);
+    }
+
+void subsystem::T_B_P11()
+    {
+        if (ctlr.get_digital_new_press(button))
+        {
+            toggle = 1 ^ toggle; 
+        }
+
+        PIS1.set_value(toggle);
+        
     }
