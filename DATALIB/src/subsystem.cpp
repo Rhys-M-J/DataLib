@@ -7,6 +7,11 @@ subsystem::subsystem(int SP, pros::controller_digital_e_t btn, pros::controller_
     toggle(1), M2(0), PIS1('z'), PIS2('z')
     {}
 
+subsystem::subsystem(int SP1, int SP2, pros::controller_digital_e_t btn, pros::controller_digital_e_t btn2) : 
+    M1(SP1), M2(SP2), button(btn), button2(btn2),
+    toggle(1), PIS1('z'), PIS2('z')
+    {}
+
 subsystem::subsystem(char TP, char TP2, pros::controller_digital_e_t btn) :
     PIS1(TP), PIS2(TP2), button(btn), 
     toggle(1), M1(0), M2(0)
@@ -27,6 +32,27 @@ void subsystem::P_B_M12()
         else if (ctlr.get_digital(button2)) 
             {
                 M1.move(-127);
+            }
+
+        else 
+            {
+                M1.brake();
+            }
+
+    }
+
+void subsystem::P_B_M22()
+    {
+
+        if (ctlr.get_digital(button))
+            {
+                M1.move(127);
+                M2.move(127);
+            }
+        else if (ctlr.get_digital(button2)) 
+            {
+                M1.move(-127);
+                M2.move(-127);
             }
             
         else 

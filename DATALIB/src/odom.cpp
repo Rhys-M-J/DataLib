@@ -3,7 +3,10 @@
 
 
 
-
+Odom::Odom(int IP, int FRP, int LRP, int fr_off, int s_off) :
+    inert(IP), forward1(FRP), sideways1(LRP), forward1offset(fr_off), sideways1offset(s_off),
+    forward2(0)
+{}
 
 
 void Odom::calc()
@@ -53,7 +56,10 @@ void Odom::calc()
         enc_prev_forward = enc_dif_x;
         enc_prev_side = enc_dif_y;
 
-        //ctlr.print(2, 2, "X : %f", global_X);
-        //ctlr.print(3, 2, "Y : %f", global_Y);
+        ctlr.clear();
+        pros::delay(50);
+
+        ctlr.print(2, 2, "X : %f", global_X);
+        ctlr.print(3, 2, "Y : %f", global_Y);
 
     }

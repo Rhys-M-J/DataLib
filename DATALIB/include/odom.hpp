@@ -24,7 +24,7 @@ class Odom
     
     public:
 
-    Odom(int);
+    Odom(int, int, int, int, int);
 
     double global_X;
     double global_Y;

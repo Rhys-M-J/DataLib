@@ -1,10 +1,12 @@
 #include "main.h"
 #include "drive.hpp"
 #include "subsystem.hpp"
+#include "odom.hpp"
 
 pros::Controller ctlr(pros::E_CONTROLLER_MASTER);
 
 drive drivet (11,12,13,-20,-19,-18, drive::sarc);
+Odom odo (69, 16, 69, 69, 69);
 subsystem intake(15, pros::E_CONTROLLER_DIGITAL_R1, pros::E_CONTROLLER_DIGITAL_R2 );
 
 subsystem GClamp('C', pros::E_CONTROLLER_DIGITAL_A);
