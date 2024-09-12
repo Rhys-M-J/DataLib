@@ -90,6 +90,7 @@ void subsystem::T_B_P11()
         
     }
 
+
 void subsystem::A_M1(int i)
     {
         if (i==1)
@@ -132,4 +133,29 @@ void subsystem::A_P1()
         toggle = 1 ^ toggle; 
 
         PIS1.set_value(toggle);
+    }
+
+void subsystem::CS_P1(int i)
+    {
+switch (i)
+{
+case 0:
+    if ((CS1.get_hue() < 30 && CS1.get_hue() >= 0) || (CS1.get_hue() <= 360 && CS1.get_hue() > 345))
+    {PIS1.set_value(1);}
+    
+    else
+    {PIS1.set_value(0);}
+
+    break;
+
+case 1:
+    if (CS1.get_hue() < 210 && CS1.get_hue() > 170)
+    {PIS1.set_value(1);}
+    
+    else
+    {PIS1.set_value(0);}
+
+default:
+    break;
+}
     }

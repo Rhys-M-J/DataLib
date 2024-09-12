@@ -43,5 +43,7 @@ class subsystem
 
     void A_P1();
 
+    void CS_P1(int);
+
 };
 

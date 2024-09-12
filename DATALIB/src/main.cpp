@@ -8,7 +8,7 @@ pros::Controller ctlr(pros::E_CONTROLLER_MASTER);
 drive drivet (11,12,13,-20,-19,-18, drive::sarc);
 drive* drive_p =  &drivet;
 Odom odo (17, 16, 10, 0, 0.5);
-subsystem intake(15, -14, pros::E_CONTROLLER_DIGITAL_R1, pros::E_CONTROLLER_DIGITAL_R2 );
+subsystem intake( 9 ,15, -14, pros::E_CONTROLLER_DIGITAL_R1, pros::E_CONTROLLER_DIGITAL_R2 );
 subsystem intakePis('B', pros::E_CONTROLLER_DIGITAL_Y);
 
 subsystem Hood('C', pros::E_CONTROLLER_DIGITAL_B);
