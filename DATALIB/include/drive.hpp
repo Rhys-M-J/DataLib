@@ -6,6 +6,7 @@ class drive
 public:
     enum DT {sarc, arc, tank};
 
+    drive();
     drive(int,int,int,int,DT);
     drive(int,int,int,int,int,int,DT);
     drive(int,int,int,int,int,int,int,int,DT);
@@ -13,6 +14,7 @@ public:
 
     
     void UC();
+    void DI(double, double);
 
     private:
    pros::Motor LF;
