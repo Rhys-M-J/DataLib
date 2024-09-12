@@ -11,7 +11,7 @@ class Odom
     pros::Rotation forward2;
     pros::Rotation sideways1;
 
-    pros::IMU inert;
+    
 
     double forward1offset;
     double forward2offset;
@@ -23,8 +23,9 @@ class Odom
     
     
     public:
+    pros::IMU inert;
 
-    Odom(int, int, int, int, int);
+    Odom(int, int, int, double, double);
 
     double global_X;
     double global_Y;

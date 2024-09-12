@@ -58,3 +58,8 @@ void drive::UC()
     }
 }
 
+void drive::DI(double l, double r)
+    {
+        L.move(l);
+        R.move(r);
+    }

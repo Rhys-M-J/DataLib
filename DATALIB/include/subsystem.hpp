@@ -18,6 +18,8 @@ class subsystem
 
     pros::ADIDigitalOut PIS1;
     pros::ADIDigitalOut PIS2;
+
+    pros::Optical CS1;
     
 
     int toggle;
@@ -26,14 +28,20 @@ class subsystem
 
     subsystem(int, pros::controller_digital_e_t, pros::controller_digital_e_t);
     subsystem(int, int, pros::controller_digital_e_t, pros::controller_digital_e_t);
+    subsystem(int, int, int, pros::controller_digital_e_t, pros::controller_digital_e_t);
     subsystem(char, pros::controller_digital_e_t);
     subsystem(char, char, pros::controller_digital_e_t);
         
     void P_B_M12();
     void P_B_M22();
 
+    void A_M1(int);
+    void A_M2(int);
+
     void T_B_P21();
     void T_B_P11();
+
+    void A_P1();
 
 };
 
