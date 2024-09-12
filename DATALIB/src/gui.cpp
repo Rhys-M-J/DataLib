@@ -85,8 +85,64 @@ void gui::guiHome()
             return 0;
         }
 
+        lv_res_t A1(lv_obj_t * btn)
+        {
+            guit.auto_sel = 1;
+            return 0;
+        }
 
-void gui::autoS(){};
+        lv_res_t A2(lv_obj_t * btn)
+        {
+            guit.auto_sel = 2;
+            return 0;
+        }
+
+        lv_res_t A3(lv_obj_t * btn)
+        {
+            guit.auto_sel = 3;
+            return 0;
+        }
+
+
+
+
+    lv_res_t gui::autoS()
+    {
+        lv_obj_del(lv_scr_act());
+
+
+        lv_obj_t * scrASel = lv_obj_create(NULL,NULL);
+        lv_scr_load(scrASel);
+
+        static lv_style_t * ButtonS;
+        lv_style_copy(ButtonS, &lv_style_plain);
+
+        lv_obj_t * Auto1 = lv_btn_create(scrASel, NULL);
+        lv_obj_set_pos(Auto1, 0,120);
+        lv_btn_set_action(Auto1, LV_BTN_ACTION_CLICK, A1);
+
+        lv_obj_t * Auto1L = lv_label_create(Auto1, NULL);
+        lv_obj_set_style(Auto1, ButtonS);
+        lv_label_set_text(Auto1L, "Auto 1");
+
+
+        lv_obj_t * Auto2 = lv_btn_create(scrASel, NULL);
+        lv_obj_set_pos(Auto2, 300,120);
+        lv_btn_set_action(Auto2, LV_BTN_ACTION_CLICK, A2);
+
+        lv_obj_t * Auto2L = lv_label_create(Auto2, NULL);
+        lv_label_set_text(Auto2L, "Auto 2");
+
+        lv_obj_t * Auto3 = lv_btn_create(scrASel, NULL);
+        lv_obj_set_pos(Auto3, 300,120);
+        lv_btn_set_action(Auto3, LV_BTN_ACTION_CLICK, A3);
+
+        lv_obj_t * Auto3L = lv_label_create(Auto2, NULL);
+        lv_label_set_text(Auto3L, "Auto 3");
+
+
+        return LV_RES_OK;
+    };
 
 
 

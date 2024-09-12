@@ -14,11 +14,14 @@ public:
     enum team {Red, Blue};
     team Team;
 
+    int auto_sel;
+
     void guiHome();
-    void autoS();
 
     static lv_res_t TSet(lv_obj_t *);
     lv_action_t TSel();
+
+    static lv_res_t autoS();
     
     void TSetR();
     void TSetB();
