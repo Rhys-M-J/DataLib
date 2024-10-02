@@ -46,10 +46,10 @@ class PID
 
     PID( drive* , Odom, double, double, double, double, double, double);
 
-    void d_point(double, double);
-    void d_t_point(double, double);
+    void d_point(double, double, int);
+    void d_t_point(double, double, int);
 
-    void t_point();
+    void t_point(double, double, int);
 
 
 

@@ -17,15 +17,27 @@ subsystem::subsystem(int CS, int SP1, int SP2, pros::controller_digital_e_t btn,
     toggle(1), PIS1('z'), PIS2('z')
     {}
 
-subsystem::subsystem(char TP, char TP2, pros::controller_digital_e_t btn) :
+subsystem::subsystem( int CS, char TP, char TP2, pros::controller_digital_e_t btn) :
+    PIS1(TP), PIS2(TP2), button(btn), 
+    toggle(1), M1(0), M2(0), CS1(CS)
+    {}
+
+subsystem::subsystem( char TP, char TP2, pros::controller_digital_e_t btn) :
     PIS1(TP), PIS2(TP2), button(btn), 
     toggle(1), M1(0), M2(0), CS1(0)
     {}
 
 subsystem::subsystem(char TP, pros::controller_digital_e_t btn) :
     PIS1(TP), button(btn), 
-    toggle(1), M1(0), M2(0), PIS2('z'), CS1(0)
+    toggle(0), M1(0), M2(0), PIS2('z'), CS1(0)
     {}
+
+subsystem::subsystem(int CS, char TP, pros::controller_digital_e_t btn) :
+    PIS1(TP), button(btn), 
+    toggle(1), M1(0), M2(0), PIS2('z'), CS1(CS)
+    {
+        CS1.set_led_pwm(100);
+    }
 
 void subsystem::P_B_M12()
     {
@@ -130,7 +142,7 @@ void subsystem::A_M2(int i)
 
 void subsystem::A_P1()
     {
-        toggle = 1 ^ toggle; 
+        toggle = toggle ^ 1; 
 
         PIS1.set_value(toggle);
     }
@@ -140,7 +152,7 @@ void subsystem::CS_P1(int i)
 switch (i)
 {
 case 0:
-    if ((CS1.get_hue() < 30 && CS1.get_hue() >= 0) || (CS1.get_hue() <= 360 && CS1.get_hue() > 345))
+    if (CS1.get_hue() < 210 && CS1.get_hue() > 140)
     {PIS1.set_value(1);}
     
     else
@@ -149,7 +161,7 @@ case 0:
     break;
 
 case 1:
-    if (CS1.get_hue() < 210 && CS1.get_hue() > 170)
+    if ((CS1.get_hue() < 40 && CS1.get_hue() >= 0) || (CS1.get_hue() <= 360 && CS1.get_hue() > 345))
     {PIS1.set_value(1);}
     
     else

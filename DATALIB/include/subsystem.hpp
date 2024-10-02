@@ -31,6 +31,8 @@ class subsystem
     subsystem(int, int, int, pros::controller_digital_e_t, pros::controller_digital_e_t);
     subsystem(char, pros::controller_digital_e_t);
     subsystem(char, char, pros::controller_digital_e_t);
+    subsystem(int, char, pros::controller_digital_e_t);
+    subsystem(int, char, char, pros::controller_digital_e_t);
         
     void P_B_M12();
     void P_B_M22();
