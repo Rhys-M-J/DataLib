@@ -1,4 +1,3 @@
-#include "display/lv_core/lv_style.h"
 #include "main.h"
 #include "gui.hpp"
 
@@ -12,7 +11,7 @@ bool Passthrough;
 void gui::guiHome()
     {
         
-        lv_style_init();
+                   
         lv_obj_t * scrHome = lv_obj_create(NULL,NULL);
         lv_scr_load(scrHome);
 
@@ -46,20 +45,19 @@ void gui::guiHome()
         lv_scr_load(scrTSel);
 
         lv_obj_t * SelRed = lv_btn_create(scrTSel, NULL);
-        lv_obj_set_pos(SelRed, 20,100);
+        lv_obj_set_pos(SelRed, 0,120);
         lv_btn_set_action(SelRed, LV_BTN_ACTION_CLICK, TSetRW);
 
         lv_obj_t * SelRedL = lv_label_create(SelRed, NULL);
-        lv_label_set_text(SelRedL, "Red");
+        lv_label_set_text(SelRedL, "RED");
 
 
         lv_obj_t * SelBlue = lv_btn_create(scrTSel, NULL);
-        lv_obj_set_pos(SelBlue, 300,100);
+        lv_obj_set_pos(SelBlue, 300,120);
         lv_btn_set_action(SelBlue, LV_BTN_ACTION_CLICK, TSetBW);
 
         lv_obj_t * SelBlueL = lv_label_create(SelBlue, NULL);
-        lv_label_set_text(SelBlueL, "Blue");
-
+        lv_label_set_text(SelBlue, "BLUE");
 
         return LV_RES_OK;
 
@@ -79,7 +77,7 @@ void gui::guiHome()
 
     void gui::TSetB()
         {
-            Team = Blue;
+            Team = Red;
             autoS();
         }
 
@@ -92,21 +90,18 @@ void gui::guiHome()
         lv_res_t A1(lv_obj_t * btn)
         {
             guit.auto_sel = 1;
-            lv_obj_del(lv_scr_act());
             return 0;
         }
 
         lv_res_t A2(lv_obj_t * btn)
         {
             guit.auto_sel = 2;
-            lv_obj_del(lv_scr_act());
             return 0;
         }
 
         lv_res_t A3(lv_obj_t * btn)
         {
             guit.auto_sel = 3;
-            lv_obj_del(lv_scr_act());
             return 0;
         }
 
@@ -121,8 +116,8 @@ void gui::guiHome()
         lv_obj_t * scrASel = lv_obj_create(NULL,NULL);
         lv_scr_load(scrASel);
 
-        //static lv_style_t * ButtonS;
-        //lv_style_copy(ButtonS, &lv_style_plain);
+        /*static lv_style_t * ButtonS;
+        lv_style_copy(ButtonS, &lv_style_plain);*/
 
         lv_obj_t * Auto1 = lv_btn_create(scrASel, NULL);
         lv_obj_set_pos(Auto1, 0,120);
@@ -130,22 +125,22 @@ void gui::guiHome()
 
         lv_obj_t * Auto1L = lv_label_create(Auto1, NULL);
         //lv_obj_set_style(Auto1, ButtonS);
-        lv_label_set_text(Auto1L, "- corner full");
+        lv_label_set_text(Auto1L, "Auto 1");
 
 
         lv_obj_t * Auto2 = lv_btn_create(scrASel, NULL);
-        lv_obj_set_pos(Auto2, 150,120);
+        lv_obj_set_pos(Auto2, 300,120);
         lv_btn_set_action(Auto2, LV_BTN_ACTION_CLICK, A2);
 
         lv_obj_t * Auto2L = lv_label_create(Auto2, NULL);
-        lv_label_set_text(Auto2L, "- corner short");
+        lv_label_set_text(Auto2L, "Auto 2");
 
         lv_obj_t * Auto3 = lv_btn_create(scrASel, NULL);
         lv_obj_set_pos(Auto3, 300,120);
         lv_btn_set_action(Auto3, LV_BTN_ACTION_CLICK, A3);
 
-        lv_obj_t * Auto3L = lv_label_create(Auto3, NULL);
-        lv_label_set_text(Auto3L, "GR");
+        lv_obj_t * Auto3L = lv_label_create(Auto2, NULL);
+        lv_label_set_text(Auto3L, "Auto 3");
 
 
         return LV_RES_OK;

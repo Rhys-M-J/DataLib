@@ -23,8 +23,6 @@ PID::PID( drive*  DT, Odom o, double p, double i, double d, double tp, double ti
 
 int A_CORRECT(double a)
     {
-        
-        //a -= 90;
 
         if (a >= 180)
         {
@@ -55,7 +53,7 @@ void PID::d_point(double des_x, double des_y, int rev)
 
                 m_error = sqrt (pow(x_error, 2) + pow(y_error, 2));
 
-                a_error = A_CORRECT(position.inert.get_heading()) - ((180/3.14) * atan2(x_error, y_error));
+                a_error = - A_CORRECT(position.inert.get_heading()) + ((180/3.14) * atan2(x_error, y_error)) - 90;
 
                 double m_speed = ((kp * m_error) + (ki * t_m_error) + (kd * c_m_error));
                 double a_speed = ((tkp * a_error) + (tki * t_a_error) + (tkd * c_a_error));

@@ -42,9 +42,9 @@ void odocalcwrap()
 void initialize() {
 
 	guit.guiHome();
-	pros::delay(100);
-	odo.inert.reset();
-	pros::delay(2500);
+	//pros::delay(100);
+	//odo.inert.reset();
+	//pros::delay(2500);
 
 	
 		
@@ -65,7 +65,7 @@ void autonomous()
 		//Testing Auto
 	///////////////////////////////////////////////////////////////////////////
 
-		RClamp.A_P1();
+		/*RClamp.A_P1();
 		Hood.A_P1();Hood.A_P1();
 		auto_d_right.d_point(13, -23, 1);
 		drivet.DI(-30, -30);
@@ -78,10 +78,10 @@ void autonomous()
 		//auto_d_right.t_point(-13, -26, 0);
 		intake.A_M2(2);
 		auto_d_right.d_point(-10, -26, 0);
-		/*auto_d_right.t_point(-15, 0, 0);
+		auto_d_right.t_point(-15, 0, 0);
 		auto_d_right.d_point(-12, -38, 0);
 		//auto_d_right.d_point(-8, -38, 0);
-		/*pros::delay(500);
+		pros::delay(500);
 		auto_d_right.d_point(22 , -45, 0);
 		Hood.A_P1();
 		intake.A_M2(0);*/
