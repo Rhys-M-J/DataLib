@@ -11,7 +11,7 @@ public:
     gui();
     gui(int);
 
-    enum team {Red, Blue};
+    enum team {Red, Blue, White};
     team Team;
 
     int auto_sel;

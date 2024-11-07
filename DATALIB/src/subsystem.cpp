@@ -151,7 +151,7 @@ void subsystem::CS_P1(int i)
     {
 switch (i)
 {
-case 0:
+case 1:
     if (CS1.get_hue() < 210 && CS1.get_hue() > 140)
     {PIS1.set_value(1);}
     
@@ -160,7 +160,7 @@ case 0:
 
     break;
 
-case 1:
+case 0:
     if ((CS1.get_hue() < 40 && CS1.get_hue() >= 0) || (CS1.get_hue() <= 360 && CS1.get_hue() > 345))
     {PIS1.set_value(1);}
     

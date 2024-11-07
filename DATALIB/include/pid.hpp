@@ -38,13 +38,20 @@ class PID
     int r_t_time;
 
     int tolerance;
+    double ttolerance; 
+
+    double tune_a; 
+    double tune_b; 
+    double tune_c;
 
     int timeout();
-    int in_tolerance();
+    int in_tolerance(int);
+
+    double error_correct(double);
 
     public:
 
-    PID( drive* , Odom, double, double, double, double, double, double);
+    PID( drive* , Odom, double, double, double, double, double, double, double, double, double, double, double, double);
 
     void d_point(double, double, int);
     void d_t_point(double, double, int);
